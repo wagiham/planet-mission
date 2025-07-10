@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background: url('Space/PNG/pink-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* adjust darkness */
+    z-index: -1;
+  } 
+  
+  
+  #game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+  
+  #planet-area {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  #planet-area img {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  #planet-area img:hover {
+    transform: scale(1.1);
+  }
+  
+  #feedback {
+    margin-top: 15px;
+    color: #ffd700;
+  }
+  
+  #cat-dialogue {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: none;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  #cat-dialogue img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  #speech-bubble {
+    background: #fff;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 10px;
+    max-width: 180px;
+  }
+  
+  #planet-log {
+    margin-top: 50px;
+    background: #1c1c2c;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #planet-log h2 {
+    font-size: 14px;
+  }
+  
+  #log-list {
+    list-style: none;
+    padding: 0;
+    font-size: 10px;
+  }
+  
+  #orbit-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+  
+  #orbit-box {
+    background: #0d0d1a;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    margin: 50px auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #555;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  #orbit-area {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+    background: radial-gradient(circle, #1a1a1a, #0d0d0d);
+    border-radius: 50%;
+    border: 2px solid #6c5aa1;
+  }
+  
+  #cat-planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+  }  
+  
+  .planet-orbit {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%; left: 50%;
+    background-image: url('Planets/Terran.png');
+    background-size: cover;
+    border-radius: 50%;
+    transform-origin: -120px center;
+    animation: orbit 6s linear infinite;
+    animation-delay: calc(var(--i) * 0.3s);
+  }
+  
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(120px); }
+    to   { transform: rotate(360deg) translateX(120px); }
+  }
+  
+  #orbit-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #start-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(2px);
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    text-align: center;
+  }
+  
+  #start-cat {
+    width: 120px;
+    height: 120px;
+    animation: float 2s ease-in-out infinite;
+    margin: 20px 0;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  #start-button, #toggle-music {
+    margin: 10px;
+    padding: 12px 24px;
+    font-family: 'Press Start 2P', cursive;
+    background: #222;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  #start-button:hover, #toggle-music:hover {
+    background-color: #444;
+  }
+  #restart-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse{
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  

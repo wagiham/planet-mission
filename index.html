@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Planet Collector - Timed Mission</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <h1>🪐 Planet Mission</h1>
+    <p id="mission">Mission: Find the <span id="target-planet">...</span> Planet!</p>
+    <p>
+      Score: <span id="score">0</span> |
+      High Score: <span id="high-score">0</span> |
+      Time Left: <span id="timer">30</span>s
+    </p>
+    
+    <div id="planet-area"></div>
+    <p id="feedback"></p>
+  </div>
+
+  <div id="cat-dialogue">
+    <img src="assets/cat-planet.jpg" alt="Cat" />
+    <div id="speech-bubble">Welcome to space!</div>
+  </div>
+
+  <div id="planet-log">
+    <h2>🌍 Planet Log</h2>
+    <ul id="log-list"></ul>
+  </div>
+  <div id="start-screen">
+    <h1>🌌 Planet Mission 🌌</h1>
+    <img id="start-cat" src="Assets/cat-planet.jpg" alt="Space Cat" />
+    <button id="start-button">🚀 Start Mission</button>
+    <button id="toggle-music">🎵 Toggle Music</button>
+  </div>  
+
+  <!-- Orbit Modal -->
+  <div id="orbit-modal">
+    <div id="orbit-box">
+      <h2>🌟 Congratulations! 🌟</h2>
+      <p>You created your own orbit!</p>
+      <div id="orbit-area">
+        <img id="cat-planet" src="assets/cat-planet.jpg" alt="Cat" />
+        <div class="planet-orbit" style="--i:0;"></div>
+        <div class="planet-orbit" style="--i:1;"></div>
+        <div class="planet-orbit" style="--i:2;"></div>
+        <div class="planet-orbit" style="--i:3;"></div>
+        <div class="planet-orbit" style="--i:4;"></div>
+      </div>
+      <button onclick="closeOrbit()">Close</button>
+      <button id="restart-button" style = "display: none;">🔄 Restart Mission</button>
+    </div>
+  </div>
+  <audio id="bg-music" src="Assets/Sounds/retro-music.mp3" loop></audio>
+  <audio id = "correct-sound" src="Assets/Sounds/correct-sound.wav"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
